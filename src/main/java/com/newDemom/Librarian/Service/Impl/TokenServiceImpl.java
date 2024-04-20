@@ -7,9 +7,11 @@ import com.newDemom.Librarian.Exception.BlogAPIException;
 import com.newDemom.Librarian.Repository.TokenRepository;
 import com.newDemom.Librarian.Service.TokenService;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class TokenServiceImpl implements TokenService {
 
     private TokenRepository tokenRepository;

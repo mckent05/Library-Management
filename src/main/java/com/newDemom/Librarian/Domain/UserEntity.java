@@ -20,16 +20,13 @@ public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private  String name;
-
+    private Long id;
+    private String name;
     private String email;
     private String password;
     private String userName;
 
-    @OneToMany(mappedBy = "user",
-            orphanRemoval = true,
-            cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", orphanRemoval = true, cascade = CascadeType.ALL)
     private Set<Token> tokens = new HashSet<>();
 
     public long getId() {
@@ -72,11 +69,12 @@ public class UserEntity {
         this.userName = userName;
     }
 
-    public Set<Token> getTokens() {
-        return tokens;
-    }
-
-    public void setTokens(Set<Token> tokens) {
-        this.tokens = tokens;
-    }
+//    public Set<Token> getTokens() {
+//        return tokens;
+//    }
+//
+//    public void setTokens(Set<Token> tokens) {
+//        this.tokens = tokens;
+//    }
 }
+
