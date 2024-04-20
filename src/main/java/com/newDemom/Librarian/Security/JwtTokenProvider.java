@@ -1,6 +1,6 @@
 package com.newDemom.Librarian.Security;
 
-import com.newDemom.BudgetApplication.Exception.BlogAPIException;
+import com.newDemom.Librarian.Exception.BlogAPIException;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
