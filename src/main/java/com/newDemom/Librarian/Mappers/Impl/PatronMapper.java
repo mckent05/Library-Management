@@ -4,7 +4,9 @@ import com.newDemom.Librarian.Domain.Dto.PatronDto;
 import com.newDemom.Librarian.Domain.PatronEntity;
 import com.newDemom.Librarian.Mappers.Mapper;
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Component;
 
+@Component
 public class PatronMapper implements Mapper<PatronEntity, PatronDto> {
 
     private ModelMapper modelMapper;

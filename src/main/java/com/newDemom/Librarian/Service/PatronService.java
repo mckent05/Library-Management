@@ -9,4 +9,6 @@ public interface PatronService {
     List<PatronEntity> getAllPatrons();
 
     PatronEntity createPatron(PatronEntity patronEntity);
+
+    PatronEntity updatePatron(PatronEntity patron, Long id);
 }

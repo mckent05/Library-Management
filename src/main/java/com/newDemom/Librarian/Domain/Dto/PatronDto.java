@@ -1,15 +1,36 @@
 package com.newDemom.Librarian.Domain.Dto;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
+import lombok.*;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Data
 public class PatronDto {
 
-    @NotEmpty
+    private Long id;
+    @NotBlank
     private String name;
 
-    @NotEmpty
+    @NotBlank
     private String contactAddress;
 
-    @NotEmpty
+    @NotBlank
     private String phoneNumber;
+
+    public String getName() {
+        return name;
+    }
+
+    public String getContactAddress() {
+        return contactAddress;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 }

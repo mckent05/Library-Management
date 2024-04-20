@@ -5,6 +5,7 @@ import com.newDemom.Librarian.Domain.Dto.PatronDto;
 import com.newDemom.Librarian.Domain.PatronEntity;
 import com.newDemom.Librarian.Mappers.Impl.PatronMapper;
 import com.newDemom.Librarian.Service.PatronService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -39,10 +40,20 @@ public class PatronController {
 
     @PostMapping
     public ResponseEntity<PatronDto> createPatron(
-           @Validated @RequestBody PatronDto patronDto) {
+           @Valid @RequestBody PatronDto patronDto) {
         PatronEntity patron = patronMapper.MapTo(patronDto);
         PatronEntity savedPatron = patronService.createPatron(patron);
         return new ResponseEntity<>(patronMapper.mapFrom(savedPatron),
+                HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<PatronDto> updatePatron(
+            @Valid @RequestBody PatronDto patronDto,
+            @PathVariable("id") Long id) {
+        PatronEntity patron = patronMapper.MapTo(patronDto);
+        PatronEntity savedUpdatedPatron = patronService.updatePatron(patron, id);
+        return new ResponseEntity<>(patronMapper.mapFrom(savedUpdatedPatron),
                 HttpStatus.CREATED);
     }
 }

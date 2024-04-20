@@ -4,7 +4,9 @@ import com.newDemom.Librarian.Domain.BookEntity;
 import com.newDemom.Librarian.Domain.Dto.BookDto;
 import com.newDemom.Librarian.Mappers.Mapper;
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Component;
 
+@Component
 public class BookMapper implements Mapper<BookEntity, BookDto> {
 
     private ModelMapper modelMapper;
