@@ -57,6 +57,6 @@ public class BookServiceImpl implements BookService {
 
     private BookEntity findBook(long id) {
         return bookRepository.findById(id).orElseThrow(() ->
-                new ResourceNotFoundException(id, "book", "Book"));
+                new ResourceNotFoundException(id, "bookId", "Book"));
     }
 }

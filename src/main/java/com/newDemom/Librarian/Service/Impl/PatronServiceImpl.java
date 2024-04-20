@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-
 public class PatronServiceImpl implements PatronService {
     private PatronRepository patronRepository;
 
@@ -53,6 +52,6 @@ public class PatronServiceImpl implements PatronService {
 
     private PatronEntity findPatron(long id) {
         return patronRepository.findById(id).orElseThrow(() ->
-                new ResourceNotFoundException(id, "patron", "Patron"));
+                new ResourceNotFoundException(id, "patronId", "Patron"));
     }
 }
