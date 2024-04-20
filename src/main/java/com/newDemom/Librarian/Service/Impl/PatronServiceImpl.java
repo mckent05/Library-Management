@@ -40,6 +40,11 @@ public class PatronServiceImpl implements PatronService {
         return getPatron;
     }
 
+    @Override
+    public void deletePatron(Long id) {
+        PatronEntity getPatron = findPatron(id);
+        patronRepository.delete(getPatron);
+    }
 
     private PatronEntity findPatron(long id) {
         return patronRepository.findById(id).orElseThrow(() ->

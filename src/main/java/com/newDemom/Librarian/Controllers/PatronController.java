@@ -54,6 +54,13 @@ public class PatronController {
         PatronEntity patron = patronMapper.MapTo(patronDto);
         PatronEntity savedUpdatedPatron = patronService.updatePatron(patron, id);
         return new ResponseEntity<>(patronMapper.mapFrom(savedUpdatedPatron),
-                HttpStatus.CREATED);
+                HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deletePatron(
+            @PathVariable("id") Long id) {
+        patronService.deletePatron(id);
+        return new ResponseEntity<>("Patron Deleted", HttpStatus.OK);
     }
 }
