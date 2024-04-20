@@ -31,6 +31,11 @@ public class PatronServiceImpl implements PatronService {
     }
 
     @Override
+    public PatronEntity getPatronDetails(Long id) {
+        return findPatron(id);
+    }
+
+    @Override
     public PatronEntity updatePatron(PatronEntity patron, Long id) {
         PatronEntity getPatron = findPatron(id);
         getPatron.setContactAddress(patron.getContactAddress());

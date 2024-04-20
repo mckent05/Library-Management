@@ -10,6 +10,8 @@ public interface PatronService {
 
     PatronEntity createPatron(PatronEntity patronEntity);
 
+    PatronEntity getPatronDetails(Long id);
+
     PatronEntity updatePatron(PatronEntity patron, Long id);
 
     void deletePatron(Long id);
