@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @Controller
-@RequestMapping("/api/v1/patrons")
+@RequestMapping("/api/patrons")
 public class PatronController {
 
     private PatronService patronService;
