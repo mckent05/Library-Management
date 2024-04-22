@@ -4,7 +4,6 @@ import com.newDemom.Librarian.Domain.PatronEntity;
 import com.newDemom.Librarian.Exception.ResourceNotFoundException;
 import com.newDemom.Librarian.Repository.PatronRepository;
 import com.newDemom.Librarian.Service.PatronService;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

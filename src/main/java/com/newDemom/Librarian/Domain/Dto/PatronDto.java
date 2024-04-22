@@ -8,8 +8,6 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-@Data
 public class PatronDto {
 
     private Long id;
@@ -22,15 +20,4 @@ public class PatronDto {
     @NotBlank
     private String phoneNumber;
 
-    public String getName() {
-        return name;
-    }
-
-    public String getContactAddress() {
-        return contactAddress;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
 }
