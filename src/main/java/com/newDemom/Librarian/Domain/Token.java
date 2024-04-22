@@ -4,10 +4,9 @@ package com.newDemom.Librarian.Domain;
 import jakarta.persistence.*;
 import lombok.*;
 
-
+@Data
 @Getter
 @Setter
-@Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor

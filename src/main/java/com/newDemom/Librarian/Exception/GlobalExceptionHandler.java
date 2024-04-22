@@ -19,9 +19,9 @@ import java.util.Map;
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(BlogAPIException.class)
+    @ExceptionHandler(LibrarianAPIException.class)
     public ResponseEntity<ErrorDetails> handleBlogAPIException
-            (BlogAPIException exception, WebRequest request) {
+            (LibrarianAPIException exception, WebRequest request) {
         ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(),
                 request.getDescription(false));
         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);

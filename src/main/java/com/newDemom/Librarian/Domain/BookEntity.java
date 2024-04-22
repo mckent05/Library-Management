@@ -4,10 +4,10 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.validator.constraints.UniqueElements;
 
+@Data
 @Getter
 @Setter
 @Entity
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

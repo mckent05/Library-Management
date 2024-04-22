@@ -1,6 +1,6 @@
 package com.newDemom.Librarian.Security;
 
-import com.newDemom.Librarian.Exception.BlogAPIException;
+import com.newDemom.Librarian.Exception.LibrarianAPIException;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
@@ -68,13 +68,13 @@ public class JwtTokenProvider {
                     .parse(token);
             return true;
         }catch (MalformedJwtException malformedJwtException){
-            throw new BlogAPIException("Invalid JWT Token", HttpStatus.BAD_REQUEST);
+            throw new LibrarianAPIException("Invalid JWT Token", HttpStatus.BAD_REQUEST);
         }catch (ExpiredJwtException expiredJwtException){
-            throw new BlogAPIException("Expired JWT token", HttpStatus.BAD_REQUEST);
+            throw new LibrarianAPIException("Expired JWT token", HttpStatus.BAD_REQUEST);
         }catch (UnsupportedJwtException unsupportedJwtException){
-            throw new BlogAPIException("Unsupported JWT token", HttpStatus.BAD_REQUEST);
+            throw new LibrarianAPIException("Unsupported JWT token", HttpStatus.BAD_REQUEST);
         }catch (IllegalArgumentException illegalArgumentException){
-            throw new BlogAPIException("Jwt claims string is null or empty", HttpStatus.BAD_REQUEST);
+            throw new LibrarianAPIException("Jwt claims string is null or empty", HttpStatus.BAD_REQUEST);
         }
     }
 }

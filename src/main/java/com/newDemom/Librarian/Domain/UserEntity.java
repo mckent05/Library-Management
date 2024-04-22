@@ -8,11 +8,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-
+@Data
 @Getter
 @Setter
 @Entity
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

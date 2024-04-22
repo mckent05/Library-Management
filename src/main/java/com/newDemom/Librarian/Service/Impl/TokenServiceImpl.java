@@ -3,7 +3,7 @@ package com.newDemom.Librarian.Service.Impl;
 import com.newDemom.Librarian.Domain.Token;
 import com.newDemom.Librarian.Domain.TokenType;
 import com.newDemom.Librarian.Domain.UserEntity;
-import com.newDemom.Librarian.Exception.BlogAPIException;
+import com.newDemom.Librarian.Exception.LibrarianAPIException;
 import com.newDemom.Librarian.Repository.TokenRepository;
 import com.newDemom.Librarian.Service.TokenService;
 import org.springframework.http.HttpStatus;
@@ -44,7 +44,7 @@ public class TokenServiceImpl implements TokenService {
     @Override
     public void logOutToken(String jwtToken) {
         Token findToken = tokenRepository.findByToken(jwtToken).
-                orElseThrow(() -> new BlogAPIException("Invalid Token", HttpStatus.BAD_REQUEST));
+                orElseThrow(() -> new LibrarianAPIException("Invalid Token", HttpStatus.BAD_REQUEST));
         findToken.setExpired(true);
         findToken.setRevoked(true);
         tokenRepository.save(findToken);

@@ -4,7 +4,7 @@ import com.newDemom.Librarian.Domain.Dto.LoginDto;
 import com.newDemom.Librarian.Domain.Dto.RegisterDto;
 import com.newDemom.Librarian.Domain.Token;
 import com.newDemom.Librarian.Domain.UserEntity;
-import com.newDemom.Librarian.Exception.BlogAPIException;
+import com.newDemom.Librarian.Exception.LibrarianAPIException;
 import com.newDemom.Librarian.Repository.UserRepository;
 import com.newDemom.Librarian.Security.JwtTokenProvider;
 import com.newDemom.Librarian.Service.AuthService;
@@ -52,7 +52,7 @@ public class AuthServiceImpl implements AuthService {
         String token = jwtTokenProvider.generateToken(authenticate);
         UserEntity user = userRepository.findByUserNameOrEmail(loginDto.getUserNameOrEmail(),
                 loginDto.getUserNameOrEmail()).orElseThrow(() ->
-                new BlogAPIException("Invalid username or Email", HttpStatus.BAD_REQUEST));
+                new LibrarianAPIException("Invalid username or Email", HttpStatus.BAD_REQUEST));
         List<Token> getTokens = tokenService.getAllUserTokens(user.getId());
         if(getTokens.isEmpty() ||
                 !tokenService.isTokenValidate(getTokens.get(0).getToken())) {
@@ -67,10 +67,10 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public String register(RegisterDto registerDto) {
         if(userRepository.existsByEmail(registerDto.getEmail())){
-            throw new BlogAPIException("Email already exists!", HttpStatus.BAD_REQUEST);
+            throw new LibrarianAPIException("Email already exists!", HttpStatus.BAD_REQUEST);
         }
         if(userRepository.existsByUserName(registerDto.getUserName())){
-            throw new BlogAPIException("Username already exists!", HttpStatus.BAD_REQUEST);
+            throw new LibrarianAPIException("Username already exists!", HttpStatus.BAD_REQUEST);
         }
 
         UserEntity user = new UserEntity();
