@@ -29,6 +29,7 @@ public class PatronServiceImpl implements PatronService {
         return patronEntity;
     }
 
+
     @Override
     public PatronEntity getPatronDetails(Long id) {
         return findPatron(id);

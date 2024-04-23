@@ -38,6 +38,14 @@ public class PatronController {
                 HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<PatronDto> getPatronDetails(
+            @PathVariable("id") Long id) {
+        PatronEntity getPatron = patronService.getPatronDetails(id);
+        return new ResponseEntity<>(patronMapper.mapFrom(getPatron),
+                HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity<PatronDto> createPatron(
            @Valid @RequestBody PatronDto patronDto) {
