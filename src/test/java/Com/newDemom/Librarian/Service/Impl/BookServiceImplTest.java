@@ -86,9 +86,9 @@ class BookServiceImplTest {
                 "Isakaba",
                 false,
                 new ArrayList<>());
-        when(bookRepository.findById(1L)).thenReturn(Optional.of(bookEntity));
+        when(bookRepository.findById(bookId)).thenReturn(Optional.of(bookEntity));
 
-        BookEntity responseEntity = bookService.getBookDetails(1L);
+        BookEntity responseEntity = bookService.getBookDetails(bookId);
         assertEquals(bookEntity.getIsbn(), responseEntity.getIsbn());
         assertEquals(bookEntity.getPublicationYear(), responseEntity.getPublicationYear());
         assertEquals(bookEntity.getAuthor(), responseEntity.getAuthor());
@@ -123,7 +123,7 @@ class BookServiceImplTest {
         getBookEntity.setTitle(updateBookEntity.getTitle());
         when(bookRepository.save(getBookEntity)).thenReturn(getBookEntity);
 
-        BookEntity responseEntity = bookService.updateBook(updateBookEntity,1L);
+        BookEntity responseEntity = bookService.updateBook(updateBookEntity,bookId);
 
         assertEquals(updateBookEntity.getIsbn(), responseEntity.getIsbn());
         assertEquals(updateBookEntity.getPublicationYear(), responseEntity.getPublicationYear());
